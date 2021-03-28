@@ -1,6 +1,6 @@
-﻿using Octoller.CurrencyConverter.App.Infrastructure.Data.Interface;
+﻿using Octoller.CurrencyConverter.App.Infrastructure.Models.Interface;
 
-namespace Octoller.CurrencyConverter.App.Infrastructure.Data
+namespace Octoller.CurrencyConverter.App.Infrastructure.Models
 {
     /// <summary>
     /// Объект катировки по заданной валюте

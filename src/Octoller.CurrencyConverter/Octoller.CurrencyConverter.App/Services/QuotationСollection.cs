@@ -1,8 +1,9 @@
-﻿using Octoller.CurrencyConverter.App.Infrastructure.Data;
+﻿using Octoller.CurrencyConverter.App.Infrastructure.Models;
+using Octoller.CurrencyConverter.App.Services.Interface;
 using System;
 using System.Collections.Generic;
 
-namespace Octoller.CurrencyConverter.App.Infrastructure.Services
+namespace Octoller.CurrencyConverter.App.Services
 {
     /// <inheritdoc />
     public class QuotationСollection : IQuotationСollection<FinancialQuote, Quotation, Valute>

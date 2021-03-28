@@ -1,6 +1,6 @@
-﻿using Octoller.CurrencyConverter.App.Infrastructure.Data.Interface;
+﻿using Octoller.CurrencyConverter.App.Infrastructure.Models.Interface;
 
-namespace Octoller.CurrencyConverter.App.Infrastructure.Data.Base
+namespace Octoller.CurrencyConverter.App.Infrastructure.Models.Base
 {
     public abstract class QuoteBase : IQuote
     {

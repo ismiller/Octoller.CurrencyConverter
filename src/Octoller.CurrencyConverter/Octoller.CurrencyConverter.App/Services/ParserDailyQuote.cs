@@ -1,10 +1,12 @@
-﻿using Octoller.CurrencyConverter.App.Infrastructure.Data;
+﻿using Octoller.CurrencyConverter.App.Infrastructure;
+using Octoller.CurrencyConverter.App.Infrastructure.Models;
 using Octoller.CurrencyConverter.App.Infrastructure.Extension;
+using Octoller.CurrencyConverter.App.Services.Interface;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
 
-namespace Octoller.CurrencyConverter.App.Infrastructure.Services
+namespace Octoller.CurrencyConverter.App.Services
 {
     /// <summary>
     /// Реализация интерфейса <see cref="IParserQuote{TCollection}" /> 

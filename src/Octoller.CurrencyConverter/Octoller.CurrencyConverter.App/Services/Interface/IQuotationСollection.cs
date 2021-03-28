@@ -1,6 +1,6 @@
-﻿using Octoller.CurrencyConverter.App.Infrastructure.Data.Interface;
+﻿using Octoller.CurrencyConverter.App.Infrastructure.Models.Interface;
 
-namespace Octoller.CurrencyConverter.App.Infrastructure.Services
+namespace Octoller.CurrencyConverter.App.Services.Interface
 {
     /// <summary>
     /// Описывает коллекцию данных котировок

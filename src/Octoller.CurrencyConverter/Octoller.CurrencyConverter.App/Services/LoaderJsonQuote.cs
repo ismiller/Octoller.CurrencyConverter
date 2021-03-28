@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Text.Json;
 using System.Net.Http;
-using Octoller.CurrencyConverter.App.Infrastructure.Interface;
+using Octoller.CurrencyConverter.App.Services.Interface;
 
-namespace Octoller.CurrencyConverter.App.Infrastructure.Services
+namespace Octoller.CurrencyConverter.App.Services
 {
     /// <summary>
     /// Выполняет загрузку данный по заданному адресу.

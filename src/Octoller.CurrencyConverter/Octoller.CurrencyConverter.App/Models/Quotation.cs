@@ -1,6 +1,6 @@
-﻿using Octoller.CurrencyConverter.App.Infrastructure.Data.Base;
+﻿using Octoller.CurrencyConverter.App.Infrastructure.Models.Base;
 
-namespace Octoller.CurrencyConverter.App.Infrastructure.Data
+namespace Octoller.CurrencyConverter.App.Infrastructure.Models
 {
     /// <summary>
     /// Котировка

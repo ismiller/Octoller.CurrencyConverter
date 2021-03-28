@@ -1,4 +1,4 @@
-﻿namespace Octoller.CurrencyConverter.App.Infrastructure.Data.Interface
+﻿namespace Octoller.CurrencyConverter.App.Infrastructure.Models.Interface
 {
     public interface IValute
     {

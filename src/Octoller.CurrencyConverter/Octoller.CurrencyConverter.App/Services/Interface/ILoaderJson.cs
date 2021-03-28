@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.Json;
 
-namespace Octoller.CurrencyConverter.App.Infrastructure.Interface
+namespace Octoller.CurrencyConverter.App.Services.Interface
 {
     public interface ILoaderJson
     {

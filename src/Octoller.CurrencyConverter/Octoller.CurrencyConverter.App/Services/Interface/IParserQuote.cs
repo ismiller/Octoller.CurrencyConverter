@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace Octoller.CurrencyConverter.App.Infrastructure.Services
+namespace Octoller.CurrencyConverter.App.Services.Interface
 {
     /// <summary>
     /// Предоставляет интерфейс парсинга <see cref="JsonDocument"/> в указанную коллекцию данных.
