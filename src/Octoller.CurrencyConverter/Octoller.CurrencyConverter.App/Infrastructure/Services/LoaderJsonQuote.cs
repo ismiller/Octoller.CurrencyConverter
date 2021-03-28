@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Text.Json;
-using System.Threading.Tasks;
 using System.Net.Http;
+using Octoller.CurrencyConverter.App.Infrastructure.Interface;
 
 namespace Octoller.CurrencyConverter.App.Infrastructure.Services
 {
     /// <summary>
     /// Выполняет загрузку данный по заданному адресу.
     /// </summary>
-    public class LoaderJsonQuote
+    public class LoaderJsonQuote : ILoaderJson
     {
         /// <summary>
         /// Предоставляет значение по умолчанию для базового адреса.
@@ -20,14 +20,10 @@ namespace Octoller.CurrencyConverter.App.Infrastructure.Services
         /// </summary>
         public static string DefaultRelativeUri => "daily_json.js";
 
-        /// <summary>
-        /// Предоставляет учтановленное текущее для базового адреса адреса.
-        /// </summary>
+        /// <inheritdoc />
         public Uri CurrentBaseUri { get; private set; }
 
-        /// <summary>
-        /// Предоставляет учтановленное текущее для относительного адреса адреса.
-        /// </summary>
+        /// <inheritdoc />
         public string CurrentRelativeUri { get; private set; }
 
         private HttpClient Client { get; set; }
@@ -35,14 +31,14 @@ namespace Octoller.CurrencyConverter.App.Infrastructure.Services
         /// <summary>
         /// Конструктор по умолчанию.
         /// </summary>
-        public LoaderJsonQuote() 
-            : this (LoaderJsonQuote.DefaultBaseUri, LoaderJsonQuote.DefaultRelativeUri) { }
+        public LoaderJsonQuote()
+            : this(LoaderJsonQuote.DefaultBaseUri, LoaderJsonQuote.DefaultRelativeUri) { }
 
         /// <summary>
         /// Конструктор, устанавливающий базовый адресс запроса.
         /// </summary>
         /// <param name="baseAddress">Базовый адресс запроса, <see cref="Uri" />.</param>
-        public LoaderJsonQuote(Uri baseAddress) 
+        public LoaderJsonQuote(Uri baseAddress)
             : this(baseAddress, LoaderJsonQuote.DefaultRelativeUri) { }
 
         /// <summary>
@@ -50,7 +46,7 @@ namespace Octoller.CurrencyConverter.App.Infrastructure.Services
         /// </summary>
         /// <param name="baseAddress">Базовый адресс запроса, <see cref="Uri" />.</param>
         /// <param name="relativeAddress">Относительный адресс запроса, <see cref="string" />.</param>
-        public LoaderJsonQuote(Uri baseAddress, string relativeAddress)  
+        public LoaderJsonQuote(Uri baseAddress, string relativeAddress)
         {
             CurrentBaseUri = baseAddress;
             CurrentRelativeUri = relativeAddress;
@@ -59,10 +55,7 @@ namespace Octoller.CurrencyConverter.App.Infrastructure.Services
             Client.BaseAddress = CurrentBaseUri;
         }
 
-        /// <summary>
-        /// Выполняет загрузку данныx по установленному адресу и возвращает в формате <see cref="JsonDocument"/>.
-        /// </summary>
-        /// <returns>Загруженные данные, <see cref="JsonDocument" />.</returns>
+        /// <inheritdoc />
         public JsonDocument Load()
         {
             var dailyString = Client.GetStringAsync(CurrentRelativeUri).Result;
@@ -71,12 +64,7 @@ namespace Octoller.CurrencyConverter.App.Infrastructure.Services
             return dailyJson;
         }
 
-        /// <summary>
-        /// Выполняет загрузку данныx по установленному относительному адресу 
-        /// и возвращает в формате <see cref="JsonDocument"/>.
-        /// </summary>
-        /// <param name="relativeUri">Относительный адресс.</param>
-        /// <returns>Загруженные данные, <see cref="JsonDocument" />.</returns>
+        /// <inheritdoc />
         public JsonDocument Load(string relativeUri)
         {
             var dailyString = Client.GetStringAsync(relativeUri).Result;

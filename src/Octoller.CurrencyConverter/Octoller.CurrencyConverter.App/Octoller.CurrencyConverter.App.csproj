@@ -119,6 +119,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\AppData.cs" />
     <Compile Include="Infrastructure\Data\Base\QuoteBase.cs" />
     <Compile Include="Infrastructure\Data\FinancialQuote.cs" />
     <Compile Include="Infrastructure\Data\Interface\IFinancialQuote.cs" />
@@ -126,6 +127,11 @@
     <Compile Include="Infrastructure\Data\Interface\IQuote.cs" />
     <Compile Include="Infrastructure\Data\Interface\IValute.cs" />
     <Compile Include="Infrastructure\Data\Valute.cs" />
+    <Compile Include="Infrastructure\Extension\JsonDocumentExtensions.cs" />
+    <Compile Include="Infrastructure\Interface\ILoaderJson.cs" />
+    <Compile Include="Infrastructure\Interface\IQuotationСollection.cs" />
+    <Compile Include="Infrastructure\Interface\IParserQuote.cs" />
+    <Compile Include="Infrastructure\Services\Converter.cs" />
     <Compile Include="Infrastructure\Services\LoaderJsonQuote.cs" />
     <Compile Include="Infrastructure\Services\ParserDailyQuote.cs" />
     <Compile Include="Infrastructure\Services\QuotationСollection.cs" />
