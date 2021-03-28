@@ -29,7 +29,7 @@ namespace Octoller.CurrencyConverter.App.ViewModels.Base
             }
 
             field = value;
-            OnPropertyChanged(property);
+            OnPropertyChanged(this, property);
             return true;
         }
     }

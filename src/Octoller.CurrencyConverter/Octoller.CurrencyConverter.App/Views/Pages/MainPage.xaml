@@ -6,12 +6,26 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:Octoller.CurrencyConverter.App.ViewModels"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="500" Height="150">
 
     <Page.DataContext>
-        <vm:MainViewModel/>
+        <vm:MainViewModel />
     </Page.DataContext>
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
 
+        <Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Content="RUB"></Button>
+        <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Content="USD"></Button>
+        <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" 
+                 VerticalAlignment="Center" Height="34" MaxLength="40" Width="400"></TextBox>
+        <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" 
+                 VerticalAlignment="Center" Height="34" MaxLength="40" Width="400"></TextBox>
     </Grid>
 </Page>

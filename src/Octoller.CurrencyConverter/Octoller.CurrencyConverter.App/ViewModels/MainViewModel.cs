@@ -1,4 +1,5 @@
 ﻿using Octoller.CurrencyConverter.App.ViewModels.Base;
+using Windows.UI.ViewManagement;
 
 namespace Octoller.CurrencyConverter.App.ViewModels
 {
@@ -6,7 +7,8 @@ namespace Octoller.CurrencyConverter.App.ViewModels
     {
         public MainViewModel()
         {
-                
+            ApplicationView.GetForCurrentView().Title = "Bar";
+            
         }
     }
 }
