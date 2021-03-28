@@ -1,6 +1,7 @@
-﻿using Windows.Foundation;
-using Windows.UI.ViewManagement;
+﻿using Octoller.CurrencyConverter.App.Services;
+using Octoller.CurrencyConverter.App.ViewModels;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 
 namespace Octoller.CurrencyConverter.App.Views.Pages
 {
@@ -9,13 +10,15 @@ namespace Octoller.CurrencyConverter.App.Views.Pages
         public MainPage()
         {
             this.InitializeComponent();
+        }
 
-            ApplicationView.PreferredLaunchViewSize = new Size(500, 150);
-            ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
-
-            var view = ApplicationView.GetForCurrentView();
-            view.SetPreferredMinSize(new Size(500, 150));
-            view.Title = "Конвертер валюты";
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            if (e.Parameter is QuotationСollection quotations && quotations != null)
+            {
+                var context = DataContext as MainViewModel;
+                context.QuotationСollection = quotations;
+            }
         }
     }
 }

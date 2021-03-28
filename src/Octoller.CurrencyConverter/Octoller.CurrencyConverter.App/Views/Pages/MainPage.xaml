@@ -6,11 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:Octoller.CurrencyConverter.App.ViewModels"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="500" Height="150">
-
-    <Page.DataContext>
-        <vm:MainViewModel />
-    </Page.DataContext>
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    DataContext="{Binding MainView, Source={StaticResource sLocator}}"
+    Width="500" Height="150">
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition />
