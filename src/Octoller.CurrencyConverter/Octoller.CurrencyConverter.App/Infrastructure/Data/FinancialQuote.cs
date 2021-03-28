@@ -5,7 +5,7 @@ namespace Octoller.CurrencyConverter.App.Infrastructure.Data
     /// <summary>
     /// Объект катировки по заданной валюте
     /// </summary>
-    public class FinancialQuote : IFinancialQuote<Quotation, Valute>
+    public class FinancialQuote : IFinancialQuote<Quotation, Valute> 
     {
         ///<inheritdoc />
         public Quotation Quotation { get; set; }
