@@ -1,6 +1,5 @@
 ﻿namespace Octoller.CurrencyConverter.App.Infrastructure.Data.Interface
 {
-
     public interface IQuote
     {
         /// <summary>

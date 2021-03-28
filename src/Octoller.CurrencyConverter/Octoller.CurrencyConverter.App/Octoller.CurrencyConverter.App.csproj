@@ -119,6 +119,16 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Data\Base\QuoteBase.cs" />
+    <Compile Include="Infrastructure\Data\FinancialQuote.cs" />
+    <Compile Include="Infrastructure\Data\Interface\IFinancialQuote.cs" />
+    <Compile Include="Infrastructure\Data\Quotation.cs" />
+    <Compile Include="Infrastructure\Data\Interface\IQuote.cs" />
+    <Compile Include="Infrastructure\Data\Interface\IValute.cs" />
+    <Compile Include="Infrastructure\Data\Valute.cs" />
+    <Compile Include="Infrastructure\Services\LoaderJsonQuote.cs" />
+    <Compile Include="Infrastructure\Services\ParserDailyQuote.cs" />
+    <Compile Include="Infrastructure\Services\QuotationСollection.cs" />
     <Compile Include="ViewModels\Base\ViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\Pages\MainPage.xaml.cs">
@@ -155,9 +165,11 @@
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.11</Version>
     </PackageReference>
+    <PackageReference Include="System.Text.Json">
+      <Version>5.0.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Infrastructure\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
