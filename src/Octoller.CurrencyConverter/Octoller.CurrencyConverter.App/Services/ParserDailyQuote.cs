@@ -32,6 +32,8 @@ namespace Octoller.CurrencyConverter.App.Services
                 quotes.Add(quote);
             }
 
+            quotes.Add(GetRUB());
+
             return quotes;
         }
 
@@ -67,6 +69,30 @@ namespace Octoller.CurrencyConverter.App.Services
             {
                 quotation.Value = value;
             }
+
+            return new FinancialQuote
+            {
+                Valute = valute,
+                Quotation = quotation
+            };
+        }
+
+        private FinancialQuote GetRUB()
+        {
+            var valute = new Valute
+            {
+                ID = string.Empty,
+                Name = "Российский рубль",
+                CharCode = "RUB",
+                NumCode = string.Empty
+            };
+
+            var quotation = new Quotation
+            {
+                ValuteID = string.Empty,
+                Nominal = 1,
+                Value = 1
+            };
 
             return new FinancialQuote
             {
