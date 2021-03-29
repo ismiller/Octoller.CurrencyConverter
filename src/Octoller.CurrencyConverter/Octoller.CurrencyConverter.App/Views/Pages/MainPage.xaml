@@ -20,10 +20,17 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Content="RUB"></Button>
-        <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Content="USD"></Button>
+        <Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" 
+                Content="{Binding FirstFinancialQuote.Valute.CharCode}"
+                Command="{Binding SelectFirst}"></Button>
+        
+        <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" 
+                Content="{Binding SecondFinancialQuote.Valute.CharCode}"
+                Command="{Binding SelectSecond}"></Button>
+        
         <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" 
                  VerticalAlignment="Center" Height="34" MaxLength="40" Width="400"></TextBox>
+        
         <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" 
                  VerticalAlignment="Center" Height="34" MaxLength="40" Width="400"></TextBox>
     </Grid>

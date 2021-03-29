@@ -1,12 +1,14 @@
 ﻿using Octoller.CurrencyConverter.App.Infrastructure.Models;
 using Octoller.CurrencyConverter.App.Services.Interface;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Octoller.CurrencyConverter.App.Services
 {
     /// <inheritdoc />
-    public class QuotationСollection : IQuotationСollection<FinancialQuote, Quotation, Valute>
+    public class QuotationСollection : IEnumerable<FinancialQuote>, IQuotationСollection<FinancialQuote, Quotation, Valute>
     {
         private IDictionary<string, FinancialQuote> quotes
             = new Dictionary<string, FinancialQuote>();
@@ -40,5 +42,12 @@ namespace Octoller.CurrencyConverter.App.Services
         /// <inheritdoc />
         public bool TryGetQuote(string charCodeValute, out FinancialQuote quote) =>
             quotes.TryGetValue(charCodeValute, out quote);
+
+        /// <inheritdoc />
+        public IEnumerator<FinancialQuote> GetEnumerator() =>
+            quotes.Values.GetEnumerator();
+
+        IEnumerator IEnumerable.GetEnumerator() => 
+            GetEnumerator();
     }
 }

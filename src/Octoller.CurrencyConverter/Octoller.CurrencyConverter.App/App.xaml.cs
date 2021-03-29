@@ -32,6 +32,7 @@ namespace Octoller.CurrencyConverter.App
             services.AddScoped<LoaderJsonQuote>();
             services.AddScoped<ParserDailyQuote>();
             services.AddScoped<DownloadViewModel>();
+            services.AddScoped<MainViewModel>();
 
             return services.BuildServiceProvider();
         }

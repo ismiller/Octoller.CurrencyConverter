@@ -3,9 +3,13 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Octoller.CurrencyConverter.App"
-    xmlns:locator="using:Octoller.CurrencyConverter.App.Infrastructure">
+    xmlns:locator="using:Octoller.CurrencyConverter.App.Infrastructure"
+    xmlns:converter="using:Octoller.CurrencyConverter.App.Infrastructure.Converters">
     
     <Application.Resources>
-        <locator:ServiceLocator x:Key="sLocator"/>
+        <ResourceDictionary>
+            <locator:ServiceLocator x:Key="sLocator"/>
+            <converter:ValuteConverter x:Key="vConverter"/>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
