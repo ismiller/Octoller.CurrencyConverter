@@ -6,5 +6,6 @@ namespace Octoller.CurrencyConverter.App.Infrastructure
     public class ServiceLocator
     {
         public DownloadViewModel DownloadView => App.Container.GetRequiredService<DownloadViewModel>();
+        public MainViewModel MainView => App.Container.GetRequiredService<MainViewModel>();
     }
 }

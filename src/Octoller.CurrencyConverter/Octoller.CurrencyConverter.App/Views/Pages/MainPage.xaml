@@ -27,11 +27,15 @@
         <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" 
                 Content="{Binding SecondFinancialQuote.Valute.CharCode}"
                 Command="{Binding SelectSecond}"></Button>
-        
+
         <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" 
-                 VerticalAlignment="Center" Height="34" MaxLength="40" Width="400"></TextBox>
-        
+                 VerticalAlignment="Center" Height="34" MaxLength="40" Width="400"
+                 Text="{Binding FirstConversionValue, Mode=TwoWay, Converter={StaticResource dConverter}, 
+                    UpdateSourceTrigger=PropertyChanged}" />
+
         <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" 
-                 VerticalAlignment="Center" Height="34" MaxLength="40" Width="400"></TextBox>
+                 VerticalAlignment="Center" Height="34" MaxLength="40" Width="400"
+                 Text="{Binding SecondConversionValue, Mode=TwoWay, Converter={StaticResource dConverter}, 
+                    UpdateSourceTrigger=PropertyChanged}" />
     </Grid>
 </Page>

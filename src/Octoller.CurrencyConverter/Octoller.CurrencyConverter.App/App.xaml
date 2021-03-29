@@ -10,6 +10,7 @@
         <ResourceDictionary>
             <locator:ServiceLocator x:Key="sLocator"/>
             <converter:ValuteConverter x:Key="vConverter"/>
+            <converter:DecimalConverter x:Key="dConverter"/>
         </ResourceDictionary>
     </Application.Resources>
 </Application>
