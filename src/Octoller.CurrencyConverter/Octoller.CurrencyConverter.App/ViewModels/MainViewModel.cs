@@ -12,6 +12,9 @@ using Windows.UI.Xaml.Controls;
 
 namespace Octoller.CurrencyConverter.App.ViewModels
 {
+    /// <summary>
+    /// Представление главного окна приложения, предоставляет доступ к интерфейсу конвертации валюты.
+    /// </summary>
     public class MainViewModel : ViewModel
     {
         public QuotationСollection QuotationСollection { get; set; }
@@ -25,11 +28,18 @@ namespace Octoller.CurrencyConverter.App.ViewModels
             view.SetPreferredMinSize(new Size(500, 150));
             view.Title = "Конвертер валюты";
 
+            // Установка команд
             SelectFirst = new TemplateCommand(OnSelectFirst);
             SelectSecond = new TemplateCommand(OnSelectSecond);
         }
 
+        #region Свойства для привязки
+
         private FinancialQuote firstFinancialQuote;
+
+        /// <summary>
+        /// Предоставляет или задает занчение катировки первой выбранной валюты.
+        /// </summary>
         public FinancialQuote FirstFinancialQuote
         {
             get
@@ -45,6 +55,10 @@ namespace Octoller.CurrencyConverter.App.ViewModels
         }
 
         private FinancialQuote secondFinancialQuote;
+
+        /// <summary>
+        /// Предоставляет или задает занчение катировки первой выбранной валюты.
+        /// </summary>
         public FinancialQuote SecondFinancialQuote
         {
             get
@@ -60,20 +74,28 @@ namespace Octoller.CurrencyConverter.App.ViewModels
         }
 
         private decimal firstConversionValue;
+
+        /// <summary>
+        /// Предоставляет или задает колличество для первой выбранной валюты.
+        /// </summary>
         public decimal FirstConversionValue
         {
             get => firstConversionValue;
-            set 
+            set
             {
                 if (value != firstConversionValue)
                 {
                     Set(ref firstConversionValue, value);
                     SecondConversionValue = Converter.Convert(value, FirstFinancialQuote, SecondFinancialQuote);
-                } 
-            } 
+                }
+            }
         }
 
         private decimal secondConversionValue;
+
+        /// <summary>
+        /// Предоставляет или задает колличество для второй выбранной валюты.
+        /// </summary>
         public decimal SecondConversionValue
         {
             get => secondConversionValue;
@@ -87,9 +109,17 @@ namespace Octoller.CurrencyConverter.App.ViewModels
             }
         }
 
+        #endregion
+
+
+        #region Команды
+
         public ICommand SelectFirst { get; }
         public ICommand SelectSecond { get; }
 
+        /// <summary>
+        /// Отображает окно выбора первой конвертируемой валюты.
+        /// </summary>
         public void OnSelectFirst(object o) => (Window.Current.Content as Frame)
                 .Navigate(typeof(SelectValutePage), new SelectValuteViewModel()
                 {
@@ -99,6 +129,9 @@ namespace Octoller.CurrencyConverter.App.ViewModels
                     MainView = this
                 });
 
+        /// <summary>
+        /// Отображает окно выбора второй конвертируемой валюты.
+        /// </summary>
         public void OnSelectSecond(object o) =>
             (Window.Current.Content as Frame)
                 .Navigate(typeof(SelectValutePage), new SelectValuteViewModel()
@@ -107,6 +140,8 @@ namespace Octoller.CurrencyConverter.App.ViewModels
                     SelectedQuote = SecondFinancialQuote,
                     Selector = Selector.Second,
                     MainView = this
-                });
+                }); 
+
+        #endregion
     }
 }

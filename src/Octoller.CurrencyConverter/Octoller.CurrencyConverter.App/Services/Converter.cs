@@ -2,19 +2,29 @@
 
 namespace Octoller.CurrencyConverter.App.Services
 {
+    /// <summary>
+    /// Предоставляет метод конвертации из одной валюты в другую.
+    /// </summary>
     public static class Converter
     {
         private readonly static int decimals = 2;
 
-        public static decimal Convert(decimal convertItem, FinancialQuote firstQuote, FinancialQuote secondQuote)
+        /// <summary>
+        /// Конвертирует указанное колличество одной валюты в другую. 
+        /// </summary>
+        /// <param name="convertItem">Количество конвертируеммой валюты.</param>
+        /// <param name="from">Катировка по первой валюте.</param>
+        /// <param name="there">Катировка по второй валюте.</param>
+        /// <returns>Результат конвертации.</returns>
+        public static decimal Convert(decimal convertItem, FinancialQuote from, FinancialQuote there)
         {
             if (convertItem == 0)
             {
                 return 0;
             }
 
-            var firstC = firstQuote.Quotation.UnitQuotation();
-            var secondC = secondQuote.Quotation.UnitQuotation();
+            var firstC = from.Quotation.UnitQuotation();
+            var secondC = there.Quotation.UnitQuotation();
 
             var summ = firstC * convertItem;
 

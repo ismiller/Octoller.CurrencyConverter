@@ -41,6 +41,7 @@ namespace Octoller.CurrencyConverter.App.ViewModels
             view.SetPreferredMinSize(new Size(500, 250));
             view.Title = "Выбор валюты";
 
+            // Установка команд.
             Selected = new TemplateCommand(OnSelected);
         }
 
