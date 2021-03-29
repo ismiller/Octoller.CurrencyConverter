@@ -11,7 +11,11 @@ namespace Octoller.CurrencyConverter.App.Views.Pages
             this.InitializeComponent();
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e) =>
+        /// <inheritdoc />
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
             (DataContext as DownloadViewModel).Load(Frame);
+        }
     }
 }

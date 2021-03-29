@@ -2,15 +2,15 @@
     x:Class="Octoller.CurrencyConverter.App.Views.Pages.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" mc:Ignorable="d"
-    xmlns:local="using:Octoller.CurrencyConverter.App"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:vm="using:Octoller.CurrencyConverter.App.ViewModels"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     DataContext="{Binding MainView, Source={StaticResource sLocator}}"
     Width="500" Height="150">
     
     <Grid>
+        
+        <!-- Сетка -->
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -20,21 +20,25 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
+        <!-- Выбор первого типа валюты -->
         <Button Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" 
                 Content="{Binding FirstFinancialQuote.Valute.CharCode}"
                 Command="{Binding SelectFirst}"></Button>
-        
+
+        <!-- Выбор второго типа валюты -->
         <Button Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" 
                 Content="{Binding SecondFinancialQuote.Valute.CharCode}"
                 Command="{Binding SelectSecond}"></Button>
 
+        <!-- Ввод первого колличества валюты -->
         <TextBox Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" 
-                 VerticalAlignment="Center" Height="34" MaxLength="40" Width="400"
+                 VerticalAlignment="Center" Height="34" MaxLength="27" Width="400"
                  Text="{Binding FirstConversionValue, Mode=TwoWay, Converter={StaticResource dConverter}, 
                     UpdateSourceTrigger=PropertyChanged}" />
 
+        <!-- Ввод второго колличества валюты -->
         <TextBox Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" 
-                 VerticalAlignment="Center" Height="34" MaxLength="40" Width="400"
+                 VerticalAlignment="Center" Height="34" MaxLength="27" Width="400"
                  Text="{Binding SecondConversionValue, Mode=TwoWay, Converter={StaticResource dConverter}, 
                     UpdateSourceTrigger=PropertyChanged}" />
     </Grid>

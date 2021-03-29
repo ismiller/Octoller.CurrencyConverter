@@ -14,9 +14,7 @@ namespace Octoller.CurrencyConverter.App.Views.Pages
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-
-            var content = e.Parameter as SelectValuteViewModel;
-            DataContext = content;
+            DataContext = (e.Parameter as SelectValuteViewModel);
         }
     }
 }

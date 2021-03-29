@@ -3,6 +3,9 @@ using System.Text.Json;
 
 namespace Octoller.CurrencyConverter.App.Services.Interface
 {
+    /// <summary>
+    /// Предоставляет методы для загрузки данных.
+    /// </summary>
     public interface ILoaderJson
     {
         /// <summary>

@@ -123,6 +123,7 @@
     <Compile Include="Infrastructure\AppData.cs" />
     <Compile Include="Infrastructure\Commands\Command.cs" />
     <Compile Include="Infrastructure\Commands\TemplateCommand.cs" />
+    <Compile Include="Infrastructure\Converters\DecimalConverter.cs" />
     <Compile Include="Infrastructure\Converters\ValuteConverter.cs" />
     <Compile Include="Infrastructure\Selector.cs" />
     <Compile Include="Models\Base\QuoteBase.cs" />

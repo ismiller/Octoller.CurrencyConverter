@@ -16,14 +16,7 @@ namespace Octoller.CurrencyConverter.App
         private static IServiceProvider container;
         public static IServiceProvider Container
         {
-            get
-            {
-                if (container is null)
-                {
-                    container = App.CreateServices();
-                }
-                return container;
-            }
+            get => container = container ?? App.CreateServices();
         }
 
         private static IServiceProvider CreateServices()
@@ -36,7 +29,6 @@ namespace Octoller.CurrencyConverter.App
 
             return services.BuildServiceProvider();
         }
-
 
         public App()
         {

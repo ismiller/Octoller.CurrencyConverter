@@ -12,5 +12,10 @@ namespace Octoller.CurrencyConverter.App.Infrastructure.Models
 
         ///<inheritdoc />
         public Valute Valute { get; set; }
+
+        ///<inheritdoc />
+        public override string ToString() =>
+            $"\n{Valute.ToString()} " +
+            $"\n{Quotation.ToString()}";
     }
 }

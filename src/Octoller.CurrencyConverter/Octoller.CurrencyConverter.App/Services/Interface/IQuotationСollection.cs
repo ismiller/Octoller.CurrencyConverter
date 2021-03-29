@@ -3,7 +3,7 @@
 namespace Octoller.CurrencyConverter.App.Services.Interface
 {
     /// <summary>
-    /// Описывает коллекцию данных котировок
+    /// Описывает коллекцию для хранения катировок
     /// </summary>
     /// <typeparam name="TFinancialQuote"></typeparam>
     /// <typeparam name="TQuote"></typeparam>

@@ -3,10 +3,15 @@ using System.Runtime.CompilerServices;
 
 namespace Octoller.CurrencyConverter.App.ViewModels.Base
 {
+    /// <summary>
+    /// Предоставляет базовый функционал моделеё представления
+    /// </summary>
     public abstract class ViewModel : INotifyPropertyChanged
     {
+        /// <inheritdoc />
         public event PropertyChangedEventHandler PropertyChanged;
 
+        /// <inheritdoc />
         protected virtual void OnPropertyChanged(object sender, [CallerMemberName] string property = null)
         {
             PropertyChanged?.Invoke(sender, new PropertyChangedEventArgs(property));

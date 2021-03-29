@@ -3,7 +3,6 @@ using Octoller.CurrencyConverter.App.Services.Interface;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Octoller.CurrencyConverter.App.Services
 {

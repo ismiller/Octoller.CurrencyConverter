@@ -11,22 +11,30 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     Width="500" Height="250">
 
-    <Grid>
-        <ListBox x:Name="list" ItemsSource="{Binding QuotationСollection}" SelectionMode="Single"
+    <Grid Height="Auto" Width="Auto">
+        
+        <!-- Список валюты -->
+        <ListBox x:Name="valuteList" ItemsSource="{Binding QuotationСollection}" SelectionMode="Single"
                  SelectedItem="{Binding SelectedQuote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            
+            <!-- Для более корректного отображения элементов списка-->
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
                 </Style>
             </ListBox.ItemContainerStyle>
+            
+            <!-- Выбор элемента при клике -->
             <interactivity:Interaction.Behaviors>
-                <core:EventTriggerBehavior EventName="SelectionChanged" SourceObject="{Binding ElementName=list}">
+                <core:EventTriggerBehavior EventName="SelectionChanged" SourceObject="{Binding ElementName=valuteList}">
                     <core:InvokeCommandAction Command="{Binding Selected}"/>
                 </core:EventTriggerBehavior>
             </interactivity:Interaction.Behaviors>
+            
+            <!-- Шаблон элемента -->
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <ListBoxItem HorizontalContentAlignment="Center" VerticalAlignment="Center" 
+                    <ListBoxItem HorizontalContentAlignment="Left" VerticalAlignment="Center" IsEnabled="False"
                                  Content="{Binding Valute, Converter={StaticResource vConverter}}">
                     </ListBoxItem>
                 </DataTemplate>

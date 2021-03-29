@@ -9,6 +9,7 @@
     Height="150" Width="500">
 
     <Grid>
+        <!-- Индикатор загрузки -->
         <ProgressRing x:Name="progressingBar" 
                       Width="100" Height="100" 
                       Visibility="Visible" 

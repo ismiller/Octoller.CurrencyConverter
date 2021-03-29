@@ -9,13 +9,13 @@
   <Identity
     Name="b486b8c8-cddd-4825-8997-90376c2bee07"
     Publisher="CN=Иван"
-    Version="1.0.0.0" />
+    Version="1.0.3.0" />
 
   <mp:PhoneIdentity PhoneProductId="b486b8c8-cddd-4825-8997-90376c2bee07" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
 
   <Properties>
-    <DisplayName>Octoller.CurrencyConverter.App</DisplayName>
-    <PublisherDisplayName>Иван</PublisherDisplayName>
+    <DisplayName>Octoller.CurrencyConverter</DisplayName>
+    <PublisherDisplayName>Иван Миллер</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -35,7 +35,7 @@
         DisplayName="Converter"
         Square150x150Logo="Assets\Square150x150Logo.png"
         Square44x44Logo="Assets\Square44x44Logo.png"
-        Description="Octoller.CurrencyConverter.App"
+        Description="Приложение для конвертации валюты."
         BackgroundColor="transparent">
         <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"/>
         <uap:SplashScreen Image="Assets\SplashScreen.png" />

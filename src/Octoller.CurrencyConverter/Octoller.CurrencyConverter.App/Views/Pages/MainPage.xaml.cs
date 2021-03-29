@@ -12,12 +12,14 @@ namespace Octoller.CurrencyConverter.App.Views.Pages
             this.InitializeComponent();
         }
 
+        /// <inheritdoc />
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+            base.OnNavigatedTo(e);
             if (e.Parameter is QuotationСollection quotations && quotations != null)
             {
-                var context = DataContext as MainViewModel;
-                context.QuotationСollection = quotations;
+               (DataContext as MainViewModel)
+                    .QuotationСollection = quotations;
             }
         }
     }

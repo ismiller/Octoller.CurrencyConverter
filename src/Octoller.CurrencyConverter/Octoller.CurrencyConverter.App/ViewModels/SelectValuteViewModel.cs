@@ -11,10 +11,25 @@ using Windows.UI.Xaml.Controls;
 
 namespace Octoller.CurrencyConverter.App.ViewModels
 {
+    /// <summary>
+    /// Представление для вывода списка загруженных типов валюты
+    /// и для выбора конвертируемой валют
+    /// </summary>
     public class SelectValuteViewModel : ViewModel
     {
+        /// <summary>
+        /// Список валюты и катировок.
+        /// </summary>
         public QuotationСollection QuotationСollection { get; set; }
+
+        /// <summary>
+        /// Представление главного окна для установки выбранного значения.
+        /// </summary>
         public MainViewModel MainView { get; set; }
+
+        /// <summary>
+        /// Переключатель, отвечает за установку выбранного элемента в нужное свойство.
+        /// </summary>
         public Selector Selector { get; set; }
 
         public SelectValuteViewModel()
@@ -29,26 +44,46 @@ namespace Octoller.CurrencyConverter.App.ViewModels
             Selected = new TemplateCommand(OnSelected);
         }
 
+        #region Свойства привязки
+
         private FinancialQuote selectedQuote;
-        public FinancialQuote SelectedQuote 
-        { 
+
+        /// <summary>
+        /// Предоставляет или задает выбранный элемент списка.
+        /// </summary>
+        public FinancialQuote SelectedQuote
+        {
             get => selectedQuote;
-            set => Set(ref selectedQuote, value); 
+            set => Set(ref selectedQuote, value);
         }
 
+        #endregion
+
+        #region Команды
+
+        /// <summary>
+        /// Предоставляет объект команды выбора.
+        /// </summary>
         public ICommand Selected { get; }
+
+        /// <summary>
+        /// Обрабатывает событие выбора элемента из списка.
+        /// </summary>
+        /// <param name="o"></param>
         public void OnSelected(object o)
         {
             if (Selector == Selector.First)
             {
                 MainView.FirstFinancialQuote = SelectedQuote;
-            }
+            } 
             else
             {
                 MainView.SecondFinancialQuote = SelectedQuote;
             }
 
             (Window.Current.Content as Frame)?.GoBack();
-        }
+        } 
+
+        #endregion
     }
 }

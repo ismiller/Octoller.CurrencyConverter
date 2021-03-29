@@ -56,14 +56,9 @@ namespace Octoller.CurrencyConverter.App.Services
         }
 
         /// <inheritdoc />
-        public JsonDocument Load()
-        {
-            var dailyString = Client.GetStringAsync(CurrentRelativeUri).Result;
-            var dailyJson = JsonDocument.Parse(dailyString);
-
-            return dailyJson;
-        }
-
+        public JsonDocument Load() =>
+            Load(CurrentRelativeUri);
+        
         /// <inheritdoc />
         public JsonDocument Load(string relativeUri)
         {

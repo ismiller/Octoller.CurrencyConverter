@@ -59,6 +59,34 @@ namespace Octoller.CurrencyConverter.App.ViewModels
             set => Set(ref secondFinancialQuote, value);
         }
 
+        private decimal firstConversionValue;
+        public decimal FirstConversionValue
+        {
+            get => firstConversionValue;
+            set 
+            {
+                if (value != firstConversionValue)
+                {
+                    Set(ref firstConversionValue, value);
+                    SecondConversionValue = Converter.Convert(value, FirstFinancialQuote, SecondFinancialQuote);
+                } 
+            } 
+        }
+
+        private decimal secondConversionValue;
+        public decimal SecondConversionValue
+        {
+            get => secondConversionValue;
+            set
+            {
+                if (value != secondConversionValue)
+                {
+                    Set(ref secondConversionValue, value);
+                    FirstConversionValue = Converter.Convert(value, SecondFinancialQuote, FirstFinancialQuote);
+                }
+            }
+        }
+
         public ICommand SelectFirst { get; }
         public ICommand SelectSecond { get; }
 
