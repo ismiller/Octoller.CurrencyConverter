@@ -48,24 +48,15 @@ namespace Octoller.CurrencyConverter.App.ViewModels
         public async void Load(Frame currentFrame)
         {
             IsActive = true;
-
-            // По причине того, что загрузка данный происвходит довольно быстро,
-            // для явной демонстрации окна загрузки, добавил задержку по времени
-
-            await Task.Delay(5000);
-            var result = await Task.Run(() =>
-            {
-                return LoadDataQuotation();
-            });
-
+            var result = await LoadDataQuotation();
             IsActive = false;
 
             currentFrame.Navigate(typeof(MainPage), result);
         }
 
-        private QuotationСollection LoadDataQuotation()
+        private async Task<QuotationСollection> LoadDataQuotation()
         {
-            var response = LoaderJsonQuote.Load();
+            var response = await LoaderJsonQuote.LoadAsync();
             return ParserDailyQuote.Parse(response);
         }
     }

@@ -7,7 +7,7 @@ namespace Octoller.CurrencyConverter.App.Services.Interface
     /// <summary>
     /// Предоставляет методы для загрузки данных.
     /// </summary>
-    public interface ILoaderJson
+    public interface ILoaderJsonAsync
     {
         /// <summary>
         /// Предоставляет учтановленное текущее для базового адреса адреса.
@@ -20,17 +20,18 @@ namespace Octoller.CurrencyConverter.App.Services.Interface
         string CurrentRelativeUri { get; }
 
         /// <summary>
-        /// Выполняет загрузку данныx по установленному адресу и возвращает в формате <see cref="JsonDocument"/>.
+        /// Выполняет загрузку данныx в асинхронной манере по установленному адресу 
+        /// и возвращает в формате <see cref="JsonDocument"/>.
         /// </summary>
         /// <returns>Загруженные данные, <see cref="JsonDocument" />.</returns>
-        Task<JsonDocument> Load();
+        Task<JsonDocument> LoadAsync();
 
         /// <summary>
-        /// Выполняет загрузку данныx по установленному относительному адресу 
+        /// Выполняет загрузку данныx в асинхронной манере по установленному относительному адресу 
         /// и возвращает в формате <see cref="JsonDocument"/>.
         /// </summary>
         /// <param name="relativeUri">Относительный адресс.</param>
         /// <returns>Загруженные данные, <see cref="JsonDocument" />.</returns>
-        Task<JsonDocument> Load(string relativeUri);
+        Task<JsonDocument> LoadAsync(string relativeUri);
     }
 }

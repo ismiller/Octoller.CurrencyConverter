@@ -135,6 +135,7 @@
     <Compile Include="Models\Valute.cs" />
     <Compile Include="Infrastructure\Extension\JsonDocumentExtensions.cs" />
     <Compile Include="Services\Interface\ILoaderJson.cs" />
+    <Compile Include="Services\Interface\ILoaderJsonAsync.cs" />
     <Compile Include="Services\Interface\IQuotationСollection.cs" />
     <Compile Include="Services\Interface\IParserQuote.cs" />
     <Compile Include="Services\Converter.cs" />

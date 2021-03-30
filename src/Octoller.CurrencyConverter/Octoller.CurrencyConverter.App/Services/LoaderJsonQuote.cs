@@ -2,13 +2,14 @@
 using System.Text.Json;
 using System.Net.Http;
 using Octoller.CurrencyConverter.App.Services.Interface;
+using System.Threading.Tasks;
 
 namespace Octoller.CurrencyConverter.App.Services
 {
     /// <summary>
     /// Выполняет загрузку данный по заданному адресу.
     /// </summary>
-    public class LoaderJsonQuote : ILoaderJson
+    public class LoaderJsonQuote : ILoaderJsonAsync, ILoaderJson
     {
         /// <summary>
         /// Предоставляет значение по умолчанию для базового адреса.
@@ -56,11 +57,24 @@ namespace Octoller.CurrencyConverter.App.Services
         }
 
         /// <inheritdoc />
-        public JsonDocument Load() =>
-            Load(CurrentRelativeUri);
+        public async Task<JsonDocument> LoadAsync() =>
+            await LoadAsync(CurrentRelativeUri);
         
         /// <inheritdoc />
-        public JsonDocument Load(string relativeUri)
+        public async Task<JsonDocument> LoadAsync(string relativeUri)
+        {
+            var dailyString = await Client.GetStringAsync(relativeUri);
+            var dailyJson = JsonDocument.Parse(dailyString);
+
+            return dailyJson;
+        }
+
+        /// <inheritdoc />
+        public async Task<JsonDocument> Load() =>
+            await Load(CurrentRelativeUri);
+
+        /// <inheritdoc />
+        public async Task<JsonDocument> Load(string relativeUri)
         {
             var dailyString = Client.GetStringAsync(relativeUri).Result;
             var dailyJson = JsonDocument.Parse(dailyString);
