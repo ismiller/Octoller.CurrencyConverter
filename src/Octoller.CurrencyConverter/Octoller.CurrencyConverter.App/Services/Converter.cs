@@ -5,7 +5,7 @@ namespace Octoller.CurrencyConverter.App.Services
     /// <summary>
     /// Предоставляет метод конвертации из одной валюты в другую.
     /// </summary>
-    public static class Converter
+    public static class Converter 
     {
         private readonly static int decimals = 2;
 

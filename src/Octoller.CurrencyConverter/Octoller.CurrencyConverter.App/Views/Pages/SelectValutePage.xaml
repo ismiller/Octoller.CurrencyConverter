@@ -9,21 +9,21 @@
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     d:DataContext="{d:DesignInstance vm:SelectValuteViewModel}"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
-    Width="500" Height="250">
+    x:Name="pageView">
 
-    <Grid Height="Auto" Width="Auto">
+    <Grid x:Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" x:Name="mainGridRow" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" x:Name="mainGridColumn"/>
+        </Grid.ColumnDefinitions>
         
         <!-- Список валюты -->
-        <ListBox x:Name="valuteList" ItemsSource="{Binding QuotationСollection}" SelectionMode="Single"
-                 SelectedItem="{Binding SelectedQuote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
-            
-            <!-- Для более корректного отображения элементов списка-->
-            <ListBox.ItemContainerStyle>
-                <Style TargetType="ListBoxItem">
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
-                </Style>
-            </ListBox.ItemContainerStyle>
-            
+        <ListView x:Name="valuteList" ItemsSource="{Binding QuotationСollection}" SelectionMode="Single"
+                  SelectedItem="{Binding SelectedQuote, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                  Grid.Row="0" Grid.Column="0" >
+
             <!-- Выбор элемента при клике -->
             <interactivity:Interaction.Behaviors>
                 <core:EventTriggerBehavior EventName="SelectionChanged" SourceObject="{Binding ElementName=valuteList}">
@@ -32,13 +32,13 @@
             </interactivity:Interaction.Behaviors>
             
             <!-- Шаблон элемента -->
-            <ListBox.ItemTemplate>
+            <ListView.ItemTemplate>
                 <DataTemplate>
                     <ListBoxItem HorizontalContentAlignment="Left" VerticalAlignment="Center" IsEnabled="False"
                                  Content="{Binding Valute, Converter={StaticResource vConverter}}">
                     </ListBoxItem>
                 </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
